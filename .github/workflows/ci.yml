@@ -34,7 +34,7 @@ jobs:
     - name: Check env vars
       run: |
         echo "ACR_HOST: $ACR_HOST"
-        echo "CSCCUID: $CSCCUID"
+        echo "CSCCUID: $USER"
     
     - name: log into Azure CR
       uses: azure/docker-login@v1
