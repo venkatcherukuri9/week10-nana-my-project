@@ -45,5 +45,5 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        docker build . -t wiit7501ewagner.azurecr.io/week9-example/$USER:v$GITHUB_RUN_ATTEMPT
-        docker push wiit7501ewagner.azurecr.io/week9-example/$USER:v$GITHUB_RUN_ATTEMPT
+        docker build . -t wiit7501ewagner.azurecr.io/week9-example/$USER:v$GITHUB_RUN_NUMBER
+        docker push wiit7501ewagner.azurecr.io/week9-example/$USER:v$GITHUB_RUN_NUMBER
