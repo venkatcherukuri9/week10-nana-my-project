@@ -16,7 +16,7 @@ jobs:
     env:
       USER: ${{ vars.CSCCUID }}
       ACR_HOST: ${{ vars.ACR }}
-      JOB: ${{ env.GITHUB_RUN_ATTEMPT }}
+      JOB: ${{ vars.GITHUB_RUN_ATTEMPT }}
     
     steps:
     - uses: actions/checkout@v2
