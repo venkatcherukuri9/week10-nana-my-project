@@ -45,5 +45,5 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        docker build . -t $ACR_HOST/week9-example:$USER-v$GITHUB_RUN_ATTEMPT
-        docker push $ACR_HOST/week9-example:$USER-v$GITHUB_RUN_ATTEMPT
+        docker build . -t $ACR_HOST/week9-example:v$GITHUB_RUN_ATTEMPT
+        docker push $ACR_HOST/week9-example:v$GITHUB_RUN_ATTEMPT
