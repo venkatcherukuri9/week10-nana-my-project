@@ -13,9 +13,8 @@ jobs:
   build-java:
 
     runs-on: ubuntu-latest
-    # env:
-    #   ACRHOST: ${{ secrets.ACR_HOST }} 
-    #   CSCCUID: ${{ secrets.CSCCUID }}
+    env:
+      CSCCUID: ${{ github.repository_variable.CSCCUID }} 
     
     steps:
     - uses: actions/checkout@v2
@@ -34,11 +33,11 @@ jobs:
     - name: log into Azure CR
       uses: azure/docker-login@v1
       with:
-        login-server: ewagner14cscc.azurecr.io
+        login-server: ${{ secrets.ACRHOST }}
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        # docker build . -t $ACRHOST:/week10-example:$CSCCUID-test1
-        # docker push $ACRHOST:/week10-example:$CSCCUID-test1
-        docker build . -t ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
-        docker push ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
+        docker build . -t ${{ secrets.ACRHOST }}:/week10-example:$CSCCUID-test1
+        docker push ${{ secrets.ACRHOST }}:$CSCCUID-test1
+        # docker build . -t ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
+        # docker push ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
