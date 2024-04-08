@@ -35,5 +35,5 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        docker build . -t ${{ secrets.ACRHOST }}/week10-example:$(( secrets.CSCCUID }}-test1
+        docker build . -t ${{ secrets.ACRHOST }}/week10-example:${{ secrets.CSCCUID }}-test1
         docker push ${{ secrets.ACRHOST }}/week10-example:${{ secrets.CSCCUID }}-test1
