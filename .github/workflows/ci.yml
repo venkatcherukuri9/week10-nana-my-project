@@ -40,5 +40,5 @@ jobs:
     - run: |
         # docker build . -t $ACRHOST:/week10-example:$CSCCUID-test1
         # docker push $ACRHOST:/week10-example:$CSCCUID-test1
-        docker build . -t ${{ env.ACRHOST }}/week10-example:${{ env.CSCCUID }}-test1
-        docker push ${{ env.ACRHOST }}/week10-example:${{ env.CSCCUID }}-test1
+        docker build . -t ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
+        docker push ${{ vars.ACRHOST }}/week10-example:${{ vars.CSCCUID }}-test1
