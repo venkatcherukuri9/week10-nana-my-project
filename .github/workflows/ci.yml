@@ -30,6 +30,11 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Check env vars
+      run: |
+        echo "ACR_HOST: $ACR_HOST"
+        echo "CSCCUID: $CSCCUID"
     
     - name: log into Azure CR
       uses: azure/docker-login@v1
