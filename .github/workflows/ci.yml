@@ -43,5 +43,5 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        docker build . -t $ACR_HOST:/week10-example:$USER-test1
-        docker push $ACR_HOST:$USER-test1
+        docker build . -t $ACR_HOST/week9-example:$USER-test1
+        docker push $ACR_HOST/week9-example:$USER-test1
