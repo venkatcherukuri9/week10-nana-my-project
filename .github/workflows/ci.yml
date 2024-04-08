@@ -16,7 +16,7 @@ jobs:
     env:
       USER: ${{ vars.CSCCUID }}
       ACR_HOST: ${{ vars.ACR }}
-      JOB: ${{ vars.GITHUB_RUN_ATTEMPT }}
+      # JOB: ${{ vars.GITHUB_RUN_ATTEMPT }}
     
     steps:
     - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
       run: |
         echo "ACR_HOST: $ACR_HOST"
         echo "CSCCUID: $USER"
-        echo "JOB ID: $JOB"
+        echo "JOB ID: $GITHUB_RUN_ATTEMPT"
     
     - name: log into Azure CR
       uses: azure/docker-login@v1
@@ -45,7 +45,5 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - run: |
-        docker build . -t $ACR_HOST/week9-example/$USER:v$JOB
-        docker push $ACR_HOST/week9-example/$USER:v$JOB
-
-        # add GITHUB_RUN_ATTEMPT
+        docker build . -t $ACR_HOST/week9-example:$USER-v$GITHUB_RUN_ATTEMPT
+        docker push $ACR_HOST/week9-example/:$USER-$GITHUB_RUN_ATTEMPT
